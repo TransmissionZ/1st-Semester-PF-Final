@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
-void gotoxy(short x, short y)           //definition of gotoxy function//                                               
+void gotoxy(int x, int y)
 {
- COORD pos ={x,y};
- SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+  static HANDLE h = NULL;  
+  if(!h)
+    h = GetStdHandle(STD_OUTPUT_HANDLE);
+  COORD c = { x, y };  
+  SetConsoleCursorPosition(h,c);
 }
 void hidecursor()
 {
@@ -17,40 +20,14 @@ void hidecursor()
    info.bVisible = FALSE;
    SetConsoleCursorInfo(consoleHandle, &info);
 }
-void StrToStar(char *ptr,int l, int e, int r){
-
+int StrToStar(char ptr[],int l, int e, int r){
 	int x = e;
 	int y = r;
+	gotoxy(x,y);
 	for (int n; n<= l;n++){
 
 		switch (ptr[n]){
-			case 'a':
-				for (int j = x+3; j<=x+12; j++){
-					gotoxy(j,y);
-					j++;
-					printf("*");
-				}
-				gotoxy(x+1,y+1);
-				printf("*");
-				gotoxy(x+13,y+1);
-				printf("*");
-				for (int j=y+2; j<=y+9;j++){
-					gotoxy(x+0,j);
-					printf("*");
-				}
-				for (int j=x+2; j<=x+12;j++){
-					gotoxy(j,y+6);
-					j++;
-					printf("*");
-				}				
-					
-				for (int j=y+2; j<=y+9;j++){
-					gotoxy(x+14,j);
-					printf("*");
-				}
-				x = x + 17;
-				break;
-			case 't':
+			case 'T':
 				for (int j=x;j<=x+17;j++){
 					gotoxy(j,y);
 					printf("#");
@@ -60,48 +37,72 @@ void StrToStar(char *ptr,int l, int e, int r){
 					gotoxy(x+8,j);
 					printf("#");
 				}
-				x = x + 19;
+				x = x + 10;
 				y=y;
 				break;
 			case 'y':
-				for (int i = x, j = y; j<=y+6; i++,j++){
+				y += 2;
+				for (int i = x, j = y; j<=y+4; i++,j++){
 					gotoxy(i,j);
 					printf("#");
 				}
-				for (int i = x+7,j=y+5; j!=y-1; i++,j--){
+				for (int i = x+5,j=y+3; j!=y-1; i++,j--){
 					gotoxy(i,j);
 					printf("#");
 				}
-				for (int j = y+6; j<=y+9;j++){
-					gotoxy(x+6, j);
+				for (int j = y+5; j<=y+7;j++){
+					gotoxy(x+4, j);
 					printf("#");
 				}
-				x = x + 15;
-				y = y;
+				x = x + 12;
 				break;
 			case 'p':
-				for (int j = y+1; j<=y+9; j++){
+				for (int j = y+1; j<=y+7; j++){
 					gotoxy(x,j);
 					printf("#");
 				}
-				for (int i = x; i<=x+10; i++){
+				for (int i = x; i<=x+8; i++){
 					gotoxy(i,y);
 					printf("#");
 					i++;
 				}
-				for (int j = y+1; j<=y+4;j++){
-					gotoxy(x+12, j);
+				for (int j = y+1; j<=y+3;j++){
+					gotoxy(x+10, j);
 					printf("#");
 				}
-				for (int i = x+10; i>=x+1; i--){
-					gotoxy(i,y+5);
+				for (int i = x+8; i>=x+1; i--){
+					gotoxy(i,y+4);
 					printf("#");
 					i--;
 				}
-				x = x + 15;
+				x = x + 13;
 				break;
 			case 'e':
-				for (int j=y;j<=y+9;j++){
+				for (int j=y;j<=y+7;j++){
+					gotoxy(x,j);
+					printf("#");
+				}
+				for (int i=x;i<=x+8;i++){
+					gotoxy(i,y);
+					printf("#");
+					i++;
+				}
+				for (int i=x;i<=x+8;i++){
+					gotoxy(i,y+3);
+					printf("#");
+					i++;
+				}
+				for (int i=x;i<=x+8;i++){
+					gotoxy(i,y+7);
+					printf("#");
+					i++;
+				}
+				x = x + 12;
+				y=y;
+				break;
+			case 'F':
+				y -= 2;
+				for (int j=y; j<=y+9 ; j++){
 					gotoxy(x,j);
 					printf("#");
 				}
@@ -110,19 +111,101 @@ void StrToStar(char *ptr,int l, int e, int r){
 					printf("#");
 					i++;
 				}
-				for (int i=x;i<=x+10;i++){
-					gotoxy(i,y+5);
+				for (int i=x+2;i<=x+10;i++){
+					gotoxy(i,y+4);
 					printf("#");
 					i++;
 				}
-				for (int i=x;i<=x+10;i++){
-					gotoxy(i,y+9);
-					printf("#");
-					i++;
-				}
-				x = x + 15;
+				x += 11;
 				break;
+			case 'a':
+				y += 2;
+				for (int i=x, j=y+7; j>=y; i++,j--){
+					gotoxy(i,j);
+					printf("#");
+				}
+				for (int i=x+7, j=y; j<=y+7; i++,j++){
+					gotoxy(i,j);
+					printf("#");
+				}
+				for (int i = x+2; i<=x+11;i++){
+					gotoxy(i, y+5);
+					printf("#");
+					i++;
+				}
+				x += 18;
+				y=y;
+				break;
+			case 's':
+				for (int z = x; z<=x+8; z++){
+					gotoxy(z,y);
+					printf("#");
+					z++;
+				}
+				for (int j=y; j<=y+4; j++){
+					gotoxy(x,j);
+					printf("#");
+				}
+				for (int i = x; i<=x+8; i++){
+					gotoxy(i,y+4);
+					printf("#");
+					i++;
+				}
+				for (int j=y+4; j<=y+7; j++){
+					gotoxy(x+8,j);
+					printf("#");
+				}
+				for (int i = x; i<=x+8; i++){
+					gotoxy(i,y+7);
+					printf("#");
+					i++;
+				}
+				x += 12;
+				y=y;
+				break;
+			case 't':
+				for(int j=y;j<=y+7;j++){
+					gotoxy(x,j);
+					printf("#");
+				}
+				for (int i = x; i<=x+8; i++){
+					gotoxy(i,y+4);
+					printf("#");
+					i++;
+				}
+				for (int i = x; i<=x+8; i++){
+					gotoxy(i,y+7);
+					printf("#");
+					i++;
+				}
+				x+=20;
+				break;
+			default:
+				return 0;
 		}
+	}
+	getch();
+}
+int color(int n){
+	switch (n){
+		case 1:
+			system("color 0A");
+			break;
+		case 2:
+			system("color 0B");
+			break;
+		case 3:
+			system("color 0C");
+			break;
+		case 4:
+			system("color 0D");
+			break;
+		case 5:
+			system("color 0E");
+			break;
+		default:
+			system("color 0F");
+			break;
 	}
 }
 int intro(char* title){
@@ -130,37 +213,51 @@ int intro(char* title){
 	int w;
 
 	while (w!=-1){
-		int n;
-		for (int x=10,y=10; y<=25; x++,y++,x++){
+		int n = rand() % 5;
+		for (int x=0,y=0; x<=25; x++,y++, y++){
 			hidecursor();
-			system("color 0A");
+			
+			color(n);
+			//system("color 0A");
 			StrToStar(title,l,x,y);
 			system("cls");
 		}
-		for (int x=26,y=26; y<=50; x++,y++,x++){
+		n = rand() % 5;
+		for (int x=25,y=50; x<=50; x++,y--, y--){
 			hidecursor();
-			system("color 0B");
+			color(n);
+			//system("color 0B");
 			StrToStar(title,l,x,y);
 			system("cls");
 		}
-		for (int x=70,y=51; y!=25; x++,y--){
+		n = rand() % 5;
+		for (int x=50,y=0; x<=75; x++,y++, y++){
 			hidecursor();
-			system("color 0A");
+			color(n);
+			//system("color 0D");
 			StrToStar(title,l,x,y);
 			system("cls");
-
 		}
-		for (int x=95,y=25; y>=0; x++,y--){
+		n = rand() % 5;
+		for (int x=75,y=50; x<=120; x++,y--){
 			hidecursor();
-			system("color 0D");
+			color(n);
+//			system("color 0E");
 			StrToStar(title,l,x,y);
 			system("cls");
-
+		}
+		n = rand() % 5;
+		for (int x=120, y = 0; x>=0; x--){
+			hidecursor();
+			color(n);
+//			system("color 0C");
+			StrToStar(title,l,x,y);
+			system("cls");
 		}
 	}
 	getch();
 }
 int main(){
-	char title[10] = "type";
+	char title[] = "TypeFast";
 	intro(title);
 }
