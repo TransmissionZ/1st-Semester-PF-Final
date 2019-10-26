@@ -3,6 +3,15 @@ void gotoxy(short x, short y)           //definition of gotoxy function//
  COORD pos ={x,y};
  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
+void fontsize(int a, int b){ 
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+	PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx = new CONSOLE_FONT_INFOEX();  
+	lpConsoleCurrentFontEx->cbSize = sizeof(CONSOLE_FONT_INFOEX);  
+	GetCurrentConsoleFontEx(out, 0, lpConsoleCurrentFontEx);  
+	lpConsoleCurrentFontEx->dwFontSize.X = a;  
+	lpConsoleCurrentFontEx->dwFontSize.Y = b;  
+	SetCurrentConsoleFontEx(out, 0, lpConsoleCurrentFontEx);  
+}
 void hidecursor()
 {
    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -21,4 +30,11 @@ void full(){
 
     keybd_event(VK_MENU,0x38,KEYEVENTF_KEYUP,0);
 
+}
+void ClearScreen(int x,int y)
+{
+	gotoxy(x,y);
+	for (int y = 0; y<=50; y++){
+		printf("\n");
+	}
 }
