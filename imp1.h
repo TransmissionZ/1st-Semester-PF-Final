@@ -34,7 +34,11 @@ void full(){
 void ClearScreen(int x,int y)
 {
 	gotoxy(x,y);
-	for (int y = 0; y<=50; y++){
-		printf("\n");
+	for (int z = y; z<y+10; z++){
+		gotoxy(x,z);
+		for (int k=0; k<=100;k++){
+			printf(" ");
+		}
 	}
+	
 }
