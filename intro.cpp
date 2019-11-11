@@ -1,4 +1,4 @@
-#include "includes.h"
+#include "headers/includes.h"
 int color(int n){
     switch (n){
         case 1:

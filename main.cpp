@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <Windows.h>
-char words1[] = ".";
 int intro(char* title);
 int mainmenu();
 void full();
