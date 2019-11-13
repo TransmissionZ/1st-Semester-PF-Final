@@ -142,21 +142,16 @@ int StrToStar(char ptr[],int l, int e, int r){
 				y=y;
 				break;
 			case 't':
-				for(int j=y;j<=y+7;j++){
-					gotoxy(x,j);
+				for (int j=x;j<=x+12;j++){
+					gotoxy(j,y);
+					printf("#");
+					j++;
+				}
+				for (int j = y+1; j<=y+7; j++){
+					gotoxy(x+6,j);
 					printf("#");
 				}
-				for (int i = x; i<=x+8; i++){
-					gotoxy(i,y+4);
-					printf("#");
-					i++;
-				}
-				for (int i = x; i<=x+8; i++){
-					gotoxy(i,y+7);
-					printf("#");
-					i++;
-				}
-				x+=20;
+				x+=15;
 				break;
 			default:
 				return 0;

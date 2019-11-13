@@ -33,7 +33,6 @@ int intro(char* title){
             
             color(n);
             StrToStar(title,l,x,y);
-            //system("cls");
  			Sleep(5);
             ClearScreen(x,y);
 			gotoxy(100,60);
@@ -41,7 +40,6 @@ int intro(char* title){
             if (kbhit()){
 	     	char ch = getch();
 			if (ch=='s'){
-				system("cls");
 				return 1;
 			}
 		}
@@ -52,13 +50,11 @@ int intro(char* title){
             color(n);
             StrToStar(title,l,x,y);
             ClearScreen(x,y);
-			//system("cls");
             gotoxy(100,60);
             printf("Press S to Continue");
             if (kbhit()){
 	     	char ch = getch();
 			if (ch=='s'){
-				system("cls");
 				return 1;
 			}
 		}
@@ -69,13 +65,11 @@ int intro(char* title){
             color(n);
             StrToStar(title,l,x,y);
             ClearScreen(x,y);
-			//system("cls");
             gotoxy(100,60);
             printf("Press S to Continue");
             if (kbhit()){
 	     	char ch = getch();
 			if (ch=='s'){
-				system("cls");
 				return 1;
 			}
 		}
@@ -87,13 +81,11 @@ int intro(char* title){
 
             StrToStar(title,l,x,y);
             ClearScreen(x,y);
-			//system("cls");
             gotoxy(100,60);
             printf("Press S to Continue");
             if (kbhit()){
 	     	char ch = getch();
 			if (ch=='s'){
-				system("cls");
 				return 1;
 			}
 		}
@@ -103,14 +95,12 @@ int intro(char* title){
             hidecursor();
         	color(n);
             StrToStar(title,l,x,y);
-            ClearScreen(x,y);
-			//system("cls");            
+            ClearScreen(x,y);            
             gotoxy(100,60);
             printf("Press S to Continue");
             if (kbhit()){
 	     	char ch = getch();
 			if (ch=='s'){
-				system("cls");
 				return 1;
 			}
 		}

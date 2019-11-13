@@ -1,0 +1,4 @@
+abc()
+{
+	printf("HIIIIII");
+}

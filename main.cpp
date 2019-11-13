@@ -8,8 +8,9 @@ int main(){
 	int a, b, c;
 	int x = intro(title);
 	if (x==1){
-		//boundary();
-		Mm = mainmenu();
+		system("cls");
+		abc();
+		//Mm = mainmenu();
 //		if (Mm == 1){
 //			a = showlevels();
 //			switch(a){
@@ -27,4 +28,5 @@ int main(){
 //		}
 		
 	}
+	return 1;
 }

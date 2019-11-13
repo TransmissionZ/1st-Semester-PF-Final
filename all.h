@@ -1,5 +1,0 @@
-#include "imp1.h"
-#include "StringtoStar.cpp"
-#include "imp1.cpp"
-#include "intro.cpp"
-#include "mainmenu.cpp"
