@@ -1,5 +1,4 @@
-#include "headers/wordsfiling.h"
-void wordsfiling(char words1[25][6]){
+void wordsfiling1(char words1[25][6]){
 	FILE *wordsfp = fopen("words/testwords.txt", "r");
 	if (wordsfp == NULL){
 		printf("File Not Opened, Restart Game!");

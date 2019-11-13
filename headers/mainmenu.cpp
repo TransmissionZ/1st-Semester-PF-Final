@@ -1,5 +1,10 @@
-//#include "headers/mainmenu.h"
 int mainmenu(){
 	printf("Main Menu Reached");
-	return 1;
+	int x;
+	scanf("%d", &x);
+	switch(x){
+		case 1:
+//			showlevels()
+		return 1;
+	}
 }

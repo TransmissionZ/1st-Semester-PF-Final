@@ -1,4 +1,3 @@
-//#include "imp1.h"
 void gotoxy(short x, short y)           //definition of gotoxy function//                                               
 {
  COORD pos ={x,y};

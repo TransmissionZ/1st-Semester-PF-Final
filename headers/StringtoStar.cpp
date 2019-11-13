@@ -1,4 +1,3 @@
-//#inlude "headers/StringtoStar.h"
 int StrToStar(char ptr[],int l, int e, int r){
 	int x = e;
 	int y = r;
