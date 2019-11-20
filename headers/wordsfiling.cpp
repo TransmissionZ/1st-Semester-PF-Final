@@ -1,17 +1,14 @@
-void wordsfiling1(char words1[25][6]){
-	FILE *wordsfp = fopen("words/testwords.txt", "r");
-	if (wordsfp == NULL){
+void wordsfiling1(char ptr[][8]){
+	FILE *fp = fopen("G:/My Drive/FAST!!/1st Semester/Assignments/Programming Fundamentals/Final Project/Haroon/headers/words/level1.txt", "r");
+	if (fp == NULL){
+		gotoxy(15,15);
 		printf("File Not Opened, Restart Game!");
+		return;
 	}
-	int i;
-	char ch[6];
-	while(fscanf(wordsfp, " %6s", ch)==1){
-		strcpy(words1[i], ch);
+	int i = 0;
+	while(fscanf(fp, "%s", ptr[i]) == 1){
 		i++;
 	}
-	for (int i=0; i<strlen(words1[i]); i++){
-		puts(words1[i]);
-	}
-	fclose(wordsfp);
+	fclose(fp);
 	fflush(stdin);
 }
