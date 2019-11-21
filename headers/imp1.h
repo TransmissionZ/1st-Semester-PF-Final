@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <time.h>
 #include <math.h>
+#include <time.h>
 
 void gotoxy(short x, short y);
 int StrToStar(char ptr[],int l, int e, int r);
@@ -17,4 +18,6 @@ void ClearScreen(int x,int y);
 void border();
 int showlevels();
 int mainmenu();
+void ClearTimer();
+int timer(time_t start);
 //int Elvl1();

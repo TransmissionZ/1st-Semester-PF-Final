@@ -6,3 +6,4 @@
 #include "mainmenu.cpp"
 #include "wordsfiling.cpp"
 #include "border.cpp"
+#include "timer.cpp"

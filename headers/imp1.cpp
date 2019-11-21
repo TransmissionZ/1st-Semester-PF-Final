@@ -41,7 +41,7 @@ void ClearScreen(int x,int y)
 	}
 }
 void ClearGame(){
-	for (int j = 6; j<60; j++){
+	for (int j = 6; j<57; j++){
 		gotoxy(11,j);
 		for (int i = 0; i<199; i++){
 			printf(" ");
@@ -53,6 +53,9 @@ void ClearWord(int x, int y){
 	for (int i = 0 ;i<20; i++){
 		printf(" ");
 	}
-	gotoxy(12, 58);
-	printf("Input: ");
+}
+void ClearTimer(){
+	gotoxy(195,4);
+	for(int i = 0; i < 10; i++)
+		printf(" ");
 }

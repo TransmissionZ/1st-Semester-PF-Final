@@ -1,10 +1,9 @@
 #include "headers/all.h"
-int Mm;
 int main(){
 	full();
 	SetConsoleTitle(TEXT("Type-Fast Game"));
 	char title[10] = "TypeFast";
-	int a, b, c;
+	int a, b, c, Mm;
 	int x = intro(title);
 	if (x==1){
 		system("color 0B");

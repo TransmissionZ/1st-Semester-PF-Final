@@ -20,5 +20,16 @@ void border(){
 		gotoxy(210,5+j);
 		printf("%c",219);
 	}
+	//Input Line
+	gotoxy(11,57);
+	for (j=0; j<199; j++){
+		printf("%c", 223);
+	}
+	gotoxy(12,58);
+	printf("Input: ");
+	
+	gotoxy(190,58);
+	printf("Press ~ to Exit");
+	
 	printf("\n");
 }

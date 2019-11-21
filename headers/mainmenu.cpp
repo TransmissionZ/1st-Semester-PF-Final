@@ -1,3 +1,8 @@
+struct player{
+	char name[15];
+	int score;
+	int maxlevel;
+};
 int printMm(){
 	char n;
 	int i;
@@ -12,7 +17,6 @@ int printMm(){
 	gotoxy(105, 30);
 	printf("4 > About-Us");	
 	gotoxy(12, 58);
-	printf("Input: ");
 	n = getche();
 	i = n - '0'; 
 	return i;
@@ -30,9 +34,8 @@ int showlevels(){
 	gotoxy(105, 28);
 	printf("3 > Hard");
 	gotoxy(12, 58);
-	printf("Input: ");
 	i = getche();
-	if (i== '~'){
+	if (i== '`'|| i== '~' ){
 		return 0;
 	}
 	if (i <= '3' && i>='1')
@@ -45,23 +48,28 @@ int showlevels(){
 	return n;
 }
 int mainmenu(){
-	int option, level;
-	gotoxy(190,58);
-	printf("Press ~ to Exit");
+	int option, level, score;
+	struct player p;
 	option = printMm();
 	ClearGame();
 	switch (option){
-		case 0:
+		case 96:
 			return 0;
-			break;
 		case 1:
+			gotoxy(80, 20);
+			printf("Enter your precious name to continue!");
+			gotoxy(20,58);
+			scanf("%s", p.name);
+			ClearGame();
+			ClearWord(20,58);
 			level = showlevels();
 			ClearGame();
 			switch (level){
 				case 1:
-					Elvl1();
+					Elvl1(&score);
 					break;
 			}
+			
 //		case 2:
 //			//scoreboard();
 //		case 3:
@@ -69,5 +77,8 @@ int mainmenu(){
 //		case 4:
 			//aboutus();
 	}
+	p.score = score;
+	gotoxy(100,30);
+	printf("%d", p.score);
 	return 0;
 }
