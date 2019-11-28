@@ -1,5 +1,7 @@
-void wordsfiling1(char ptr[][8]){
-	FILE *fp = fopen("G:/My Drive/FAST!!/1st Semester/Assignments/Programming Fundamentals/Final Project/Haroon/headers/words/level1.txt", "r");
+void wordsfiling1(char ptr[][13], char *filename){
+	char name[] = ("G:/My Drive/FAST!!/1st Semester/Assignments/Programming Fundamentals/Final Project/Haroon/headers/words/");
+	strcat(name, filename);
+	FILE *fp = fopen(name, "r");
 	if (fp == NULL){
 		gotoxy(15,15);
 		printf("File Not Opened, Restart Game!");

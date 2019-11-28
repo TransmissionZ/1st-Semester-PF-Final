@@ -54,6 +54,12 @@ void ClearWord(int x, int y){
 		printf(" ");
 	}
 }
+void Clear1Word(int x, int y){
+	gotoxy(x,y);
+	for (int i = 0 ;i<=10; i++){
+		printf(" ");
+	}
+}
 void ClearTimer(){
 	gotoxy(195,4);
 	for(int i = 0; i < 10; i++)

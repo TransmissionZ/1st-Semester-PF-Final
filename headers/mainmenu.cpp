@@ -21,6 +21,30 @@ int printMm(){
 	i = n - '0'; 
 	return i;
 }
+int showconcept(){
+	int n;
+	char i;
+	ClearGame();
+	gotoxy(105, 20);
+	printf("Concepts:");
+	gotoxy(105, 24);
+	printf("1 > Concept 1");
+	gotoxy(105, 26);
+	printf("2 > Concept 2");
+	gotoxy(20, 58);
+	i = getche();
+	if (i== '`'|| i== '~' ){
+		return 0;
+	}
+	if (i < '3' && i>='1')
+		n = i - '0';
+	else{
+		gotoxy(90,58);
+		printf("Wrong Input! Please Select again");
+		showconcept();
+	}
+	return n;
+}
 int showlevels(){
 	int n;
 	char i;
@@ -28,12 +52,12 @@ int showlevels(){
 	gotoxy(105, 20);
 	printf("Modes:");
 	gotoxy(105, 24);
-	printf("1 > Easy");
+	printf("1 > Level 1");
 	gotoxy(105, 26);
-	printf("2 > Medium");
+	printf("2 > Level 2");
 	gotoxy(105, 28);
-	printf("3 > Hard");
-	gotoxy(12, 58);
+	printf("3 > Level 3");
+	gotoxy(20, 58);
 	i = getche();
 	if (i== '`'|| i== '~' ){
 		return 0;
@@ -47,8 +71,32 @@ int showlevels(){
 	}
 	return n;
 }
+int showlevels(){
+	int n;
+	char i;
+	ClearGame();
+	gotoxy(105, 20);
+	printf("Modes:");
+	gotoxy(105, 24);
+	printf("1 > Level 1");
+	gotoxy(105, 26);
+	printf("2 > Level 2");
+	gotoxy(20, 58);
+	i = getche();
+	if (i== '`'|| i== '~' ){
+		return 0;
+	}
+	if (i <= '2' && i>='1')
+		n = i - '0';
+	else{
+		gotoxy(90,58);
+		printf("Wrong Input! Please Select again");
+		showlevels2();
+	}
+	return n;
+}
 int mainmenu(){
-	int option, level, score;
+	int option, level, concept, score, l1, l2, l3, h1;
 	struct player p;
 	option = printMm();
 	ClearGame();
@@ -62,13 +110,38 @@ int mainmenu(){
 			scanf("%s", p.name);
 			ClearGame();
 			ClearWord(20,58);
-			level = showlevels();
-			ClearGame();
-			switch (level){
+			concept = showconcept();
+			switch (concept){
 				case 1:
-					Elvl1(&score);
+					level = showlevels();
+					ClearGame();
+					switch (level){
+						case 1:
+							l1 = Elvl1(&score);
+							if (l1 != 2)
+								break;
+						case 2:
+							l2 = Elvl2(&score);
+							if (l2 != 3){
+								break;	
+							}
+				
+						case 3:
+							l3 = Elvl3(&score);
+							break;
+					}
 					break;
+				case 2:
+					level2 = showlevels2();
+//					if (level2 == 1)
+//						hlvl1();
+//					if (level2 == 2)
+//						hlvl2();
+						
+					break;
+					
 			}
+			
 			
 //		case 2:
 //			//scoreboard();
