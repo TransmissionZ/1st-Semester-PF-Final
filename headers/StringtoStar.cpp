@@ -1,11 +1,11 @@
-int StrToStar(char ptr[],int l, int e, int r){
+int StrToStar(char ptr[],int l, int e, int r){ //Function to print Words with #pattern
 	int x = e;
 	int y = r;
 	gotoxy(x,y);
 	for (int n; n<= l;n++){
 
 		switch (ptr[n]){
-			case 'T':
+			case 'T': //printing letters dynamically using x and y.
 				for (int j=x;j<=x+17;j++){
 					gotoxy(j,y);
 					printf("#");

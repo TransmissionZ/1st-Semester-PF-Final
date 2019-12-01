@@ -26,10 +26,10 @@ void border(){
 		printf("%c", 223);
 	}
 	gotoxy(12,58);
-	printf("Input: ");
+	printf("Input: "); //input text
 	
 	gotoxy(190,58);
-	printf("Press ~ to Exit");
+	printf("Press ~ to Exit"); //exit text
 	
 	printf("\n");
 }

@@ -1,6 +1,7 @@
 #include "headers/all.h"
 int main(){
 	full();
+	srand (time(NULL));
 	SetConsoleTitle(TEXT("Type-Fast Game"));
 	char title[10] = "TypeFast";
 	int a, b, c, Mm;
